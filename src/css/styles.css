@@ -57,15 +57,28 @@
   transform: scale(0.98);
 }
 
-.loader {
-  width: 48px;
-  height: 48px;
-  border: 5px solid #ccc;
-  border-bottom-color: blue;
-  border-radius: 50%;
-  display: none;
+.load-more {
+  padding: 10px 20px;
+  border: none;
+  background-color: #4e75ff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  display: block;
   margin: 20px auto;
-  animation: rotation 1s linear infinite;
+}
+
+.load-more:hover {
+  background-color: #6c8cff;
+}
+
+.loader {
+    text-align: center;
+  margin: 20px auto;
+  font-size: 16px;
+  color: #555;
 }
 
 .loader.is-visible {
@@ -107,4 +120,8 @@
 .gallery img:hover {
   transform: scale(1.03);
   transition: 0.3s;
+}
+
+.is-hidden {
+  display: none;
 }
