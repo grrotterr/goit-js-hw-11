@@ -84,6 +84,7 @@ async function searchImages() {
 async function loadMoreImages() {
   page += 1;
 
+  hideLoadMoreButton();
   showLoader();
 
   try {
@@ -93,9 +94,9 @@ async function loadMoreImages() {
 
     const totalPages = Math.ceil(data.totalHits / 15);
 
-    if (page >= totalPages) {
-      hideLoadMoreButton();
-
+    if (page < totalPages) {
+      showLoadMoreButton();
+    } else {
       iziToast.info({
         message:
           "We're sorry, but you've reached the end of search results.",
@@ -117,6 +118,8 @@ async function loadMoreImages() {
       message: 'Something went wrong!',
       position: 'topRight',
     });
+
+    showLoadMoreButton();
   } finally {
     hideLoader();
   }
